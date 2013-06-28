@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace RefactoringDemo
+﻿namespace RefactoringDemo
 {
     public class Rental
     {
@@ -16,14 +11,29 @@ namespace RefactoringDemo
             this.daysRented = daysRented;
         }
 
-        public int GetDaysRented()
+        public int DaysRented
         {
-            return daysRented;
+            get { return daysRented; }
         }
 
-        public Movie GetMovie()
+        public Movie Movie
         {
-            return movie;
+            get { return movie; }
+        }
+
+        public string Title
+        {
+            get { return Movie.Title; }
+        }
+
+        public double DetermineAmount()
+        {
+            return RentalRules.DetermineAmount(DaysRented, Movie);
+        }
+
+        public int DetermineFrequentRentalPoints()
+        {
+            return RentalRules.DetermineFrequentrenterPoints(DaysRented, Movie);
         }
     }
 }
